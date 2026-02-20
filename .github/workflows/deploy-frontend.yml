@@ -1,9 +1,12 @@
-name: Deploy to GitHub Pages
+name: Deploy Frontend to GitHub Pages
 
 on:
   push:
     branches:
       - main
+    paths:
+      - 'Election-frontend/**'
+      - '.github/workflows/deploy-frontend.yml'
   pull_request:
     branches:
       - main
@@ -21,11 +24,14 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
+          cache-dependency-path: Election-frontend/package-lock.json
 
       - name: Install dependencies
+        working-directory: Election-frontend
         run: npm install
 
       - name: Build application
+        working-directory: Election-frontend
         run: npm run build
 
       - name: Deploy to GitHub Pages
@@ -33,4 +39,4 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: Election-frontend/dist
