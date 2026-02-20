@@ -1,24 +1,88 @@
 .dashboard {
-  padding: 2rem;
+  padding: 1rem;
   min-height: 100vh;
+  width: 100%;
 }
 
 .dashboard-title {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: var(--primary-color);
+  font-size: 1.75rem;
+  padding: 0 1rem;
 }
 
 .dashboard-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  max-width: 1400px;
+  gap: 1.5rem;
+  max-width: 1600px;
   margin: 0 auto;
+  width: 100%;
 }
 
+/* Tablet: 2 columns */
 @media (min-width: 768px) {
+  .dashboard {
+    padding: 1.5rem;
+  }
+
+  .dashboard-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
   .dashboard-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Desktop: Better spacing with consistent 2-column layout */
+@media (min-width: 1024px) {
+  .dashboard {
+    padding: 2rem;
+  }
+
+  .dashboard-title {
+    font-size: 2.5rem;
+  }
+
+  .dashboard-grid {
+    gap: 2.5rem;
+    /* Keeps 2 columns: First row shows Assembly & General elections, Second row shows remaining charts */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile landscape */
+@media (max-width: 767px) and (orientation: landscape) {
+  .dashboard {
+    padding: 0.75rem;
+  }
+
+  .dashboard-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .dashboard-grid {
+    gap: 1rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 0.75rem;
+  }
+
+  .dashboard-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .dashboard-grid {
+    gap: 1rem;
   }
 }

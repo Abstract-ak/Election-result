@@ -275,6 +275,7 @@ tbody tr:last-child td {
   box-shadow: var(--shadow);
   width: 100%;
   min-height: 400px;
+  overflow: hidden;
 }
 
 .chart-title {
@@ -282,6 +283,7 @@ tbody tr:last-child td {
   font-weight: 600;
   color: var(--primary-color);
   margin-bottom: 1rem;
+  word-wrap: break-word;
 }
 
 /* Responsive */
@@ -298,6 +300,8 @@ tbody tr:last-child td {
 
   table {
     font-size: 0.875rem;
+    overflow-x: auto;
+    display: block;
   }
 
   th,
@@ -312,5 +316,57 @@ tbody tr:last-child td {
 
   .chart-title {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
+  h3 {
+    font-size: 1.125rem;
+  }
+
+  button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .chart-container {
+    min-height: 250px;
+    padding: 0.75rem;
+    border-radius: 8px;
+    /* left-margin: 0.5rem; */
+  }
+
+  .chart-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  table {
+    font-size: 0.8rem;
+  }
+
+  th,
+  td {
+    padding: 0.5rem 0.25rem;
+  }
+}
+
+/* Landscape mode for small devices */
+@media (max-width: 767px) and (orientation: landscape) {
+  .chart-container {
+    min-height: 280px;
   }
 }
