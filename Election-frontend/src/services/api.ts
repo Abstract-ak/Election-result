@@ -16,12 +16,6 @@ interface PartyStats {
   percentage: number;
 }
 
-interface ApiResponse<T> {
-  success: boolean;
-  data: T;
-  message?: string;
-}
-
 // Generic fetch wrapper with error handling
 async function fetchApi<T>(
   endpoint: string,
